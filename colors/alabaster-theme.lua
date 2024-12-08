@@ -142,8 +142,6 @@ local mapping = {
   -- healthWarning = {},
 }
 
-local M = {}
-
 local function hl(group, opts)
   local cmd = "hi " .. group
   if opts.fg then
@@ -158,16 +156,12 @@ local function hl(group, opts)
   vim.cmd(cmd)
 end
 
-function M.setup()
-  vim.cmd("hi clear")
-  vim.cmd("syntax reset")
+vim.cmd("hi clear")
+vim.cmd("syntax reset")
 
-  vim.o.termguicolors = true
-  vim.g.colors_name = "alabaster"
+vim.o.termguicolors = true
+vim.g.colors_name = "alabaster"
 
-  for group, opts in pairs(mapping) do
-    hl(group, opts)
-  end
+for group, opts in pairs(mapping) do
+  hl(group, opts)
 end
-
-return M
