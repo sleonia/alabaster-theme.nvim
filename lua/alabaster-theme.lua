@@ -101,7 +101,7 @@ local mapping = {
   String = { fg = colors["terminal.ansiBlack"] }, --   a string constant: "this is a string"
   -- Todo = {}, -- (preferred) anything that needs extra attention; mostly the keywords TODO FIXME and XXX
   -- Type = {}, -- (preferred) int, long, char, etc.
-  Underlined = { underline = true }, -- (preferred) text that stands out, HTML links
+  -- Underlined = { underline = true }, -- (preferred) text that stands out, HTML links
   -- debugBreakpoint = {}, -- used for breakpoint colors in terminal-debug
   -- debugPC = {}, -- used for highlighting the current line in terminal-debug
   -- dosIniLabel = "@property",
