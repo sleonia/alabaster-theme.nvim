@@ -159,6 +159,8 @@ local function hl(group, opts)
 end
 
 function M.setup()
+  vim.cmd("syntax reset")
+
   -- only needed to clear when not the default colorscheme
   if vim.g.colors_name then
     vim.cmd("hi clear")
