@@ -98,7 +98,7 @@ local mapping = {
   -- PreProc = {}, -- (preferred) generic Preprocessor
   -- Special = {}, -- (preferred) any special symbol
   -- Statement = {}, -- (preferred) any statement
-  String = { fg = colors["terminal.ansiBlack"] }, --   a string constant: "this is a string"
+  String = { fg = colors["terminal.ansiGreen"] }, --   a string constant: "this is a string"
   -- Todo = {}, -- (preferred) anything that needs extra attention; mostly the keywords TODO FIXME and XXX
   -- Type = {}, -- (preferred) int, long, char, etc.
   -- Underlined = { underline = true }, -- (preferred) text that stands out, HTML links
