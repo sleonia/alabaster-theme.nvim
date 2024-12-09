@@ -2,6 +2,9 @@
 
 local token_colors = {
   ["Comments"] = "#AA3731",
+  ["Global definitions"] = {
+    ["background"] = "#325CC0"
+  }
 }
 
 local colors = {
@@ -90,7 +93,7 @@ local mapping = {
   -- Debug = {}, --    debugging statements
   -- Delimiter = "Special", --  character that needs attention
   -- Error = {}, -- (preferred) any erroneous construct
-  -- Function = {}, -- function name (also: methods for classes)
+  -- Function = { fg = token_colors["Global definitions"]["background"] }, -- function name (also: methods for classes)
   -- Identifier = {}, -- (preferred) any variable name
   -- Italic = {}, -- (preferred) any italic text
   -- Keyword = {}, --  any other keyword
