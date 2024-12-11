@@ -3,8 +3,11 @@
 local token_colors = {
   ["Comments"] = "#AA3731",
   ["Global definitions"] = {
-    ["background"] = "#325CC0"
-  }
+    ["background"] = "#325CC0",
+  },
+  ["Punctuation"] = {
+    ["foreground"] = "#777777",
+  },
 }
 
 local colors = {
@@ -17,6 +20,7 @@ local colors = {
 
   ["terminal.ansiGreen"] = "#448C27",
   ["terminal.ansiBlack"] = "#000",
+  ["terminal.ansiMagenta"] = "#7A3E9D",
 }
 
 local mapping = {
@@ -89,12 +93,12 @@ local mapping = {
   --
   -- Bold = {}, -- (preferred) any bold text
   -- Character = {}, --  a character constant: 'c', '\n'
-  -- Constant = {}, -- (preferred) any constant
+  Constant = { fg = colors["terminal.ansiMagenta"] }, -- (preferred) any constant
   -- Debug = {}, --    debugging statements
   -- Delimiter = "Special", --  character that needs attention
   -- Error = {}, -- (preferred) any erroneous construct
-  -- Function = { fg = token_colors["Global definitions"]["background"] }, -- function name (also: methods for classes)
-  -- Identifier = {}, -- (preferred) any variable name
+  Function = { fg = token_colors["Global definitions"]["background"] }, -- function name (also: methods for classes)
+  Identifier = { fg = colors["terminal.ansiBlack"] }, -- (preferred) any variable name
   -- Italic = {}, -- (preferred) any italic text
   -- Keyword = {}, --  any other keyword
   -- Operator = {}, -- "sizeof", "+", "*", etc.
@@ -111,6 +115,7 @@ local mapping = {
   -- helpCommand = {},
   -- htmlH1 = {},
   -- htmlH2 = {},
+  htmlTag = { fg = token_colors["Punctuation"]["foreground"] },
   -- qfFileName = {},
   -- qfLineNr = {},
   --
@@ -143,6 +148,9 @@ local mapping = {
   -- healthError = {},
   -- healthSuccess = {},
   -- healthWarning = {},
+
+  -- ["@lsp.type.parameter"] = { guifg = token_colors["Global definitions"] },
+  -- ["@lsp.type.parameter"] = "@variable.parameter",
 }
 
 local function hl(group, opts)
@@ -168,3 +176,28 @@ vim.g.colors_name = "alabaster"
 for group, opts in pairs(mapping) do
   hl(group, opts)
 end
+
+-- Temporary solution
+
+vim.cmd("hi link typescriptAssign Operator")
+vim.cmd("hi link typescriptBinaryOp Operator")
+vim.cmd("hi link typescriptCastKeyword Keyword")
+vim.cmd("hi link typescriptDocNotation Keyword")
+vim.cmd("hi link typescriptDocParam Field")
+vim.cmd("hi link typescriptDocTags Keyword")
+vim.cmd("hi link typescriptExport Include")
+vim.cmd("hi link typescriptImport Include")
+vim.cmd("hi link typescriptInterfaceName TypeDef")
+vim.cmd("hi link typescriptKeywordOp Operator")
+vim.cmd("hi link typescriptMember Field")
+vim.cmd("hi link typescriptObjectLabel Field")
+vim.cmd("hi link typescriptTernary Operator")
+vim.cmd("hi link typescriptVariable Type")
+vim.cmd("hi link typescriptNumber Constant")
+
+vim.cmd("hi! link typescriptAssign Punctuation")
+vim.cmd("hi! link typescriptBraces Punctuation")
+vim.cmd("hi! link typescriptEndColons Punctuation")
+vim.cmd("hi! link typescriptObjectColon Punctuation")
+vim.cmd("hi! link typescriptParens Punctuation")
+vim.cmd("hi! link typescriptTypeAnnotation Punctuation")
