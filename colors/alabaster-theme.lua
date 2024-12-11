@@ -103,8 +103,8 @@ local mapping = {
   -- Keyword = {}, --  any other keyword
   -- Operator = {}, -- "sizeof", "+", "*", etc.
   -- PreProc = {}, -- (preferred) generic Preprocessor
-  -- Special = {}, -- (preferred) any special symbol
-  -- Statement = {}, -- (preferred) any statement
+  Special = { fg = colors["terminal.ansiBlack"] }, -- (preferred) any special symbol
+  Statement = { style = "NONE" }, -- (preferred) any statement
   String = { fg = colors["terminal.ansiGreen"] }, --   a string constant: "this is a string"
   -- Todo = {}, -- (preferred) anything that needs extra attention; mostly the keywords TODO FIXME and XXX
   -- Type = {}, -- (preferred) int, long, char, etc.
@@ -116,6 +116,7 @@ local mapping = {
   -- htmlH1 = {},
   -- htmlH2 = {},
   htmlTag = { fg = token_colors["Punctuation"]["foreground"] },
+  htmlTagName = { fg = token_colors["Global definitions"]["background"] },
   -- qfFileName = {},
   -- qfLineNr = {},
   --
@@ -151,6 +152,9 @@ local mapping = {
 
   -- ["@lsp.type.parameter"] = { guifg = token_colors["Global definitions"] },
   -- ["@lsp.type.parameter"] = "@variable.parameter",
+  ["@lsp.type.member"] = {
+    fg = token_colors["Global definitions"]["background"],
+  },
 }
 
 local function hl(group, opts)
@@ -179,6 +183,7 @@ end
 
 -- Temporary solution
 
+vim.cmd("hi link tsxTag Function")
 vim.cmd("hi link typescriptAssign Operator")
 vim.cmd("hi link typescriptBinaryOp Operator")
 vim.cmd("hi link typescriptCastKeyword Keyword")
