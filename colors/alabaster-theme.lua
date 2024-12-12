@@ -158,6 +158,9 @@ local mapping = {
   ["@lsp.type.class"] = {
     fg = token_colors["Global definitions"]["background"],
   },
+  ["@lsp.type.enumMember"] = {
+    fg = token_colors["Global definitions"]["background"],
+  },
 }
 
 local function hl(group, opts)
