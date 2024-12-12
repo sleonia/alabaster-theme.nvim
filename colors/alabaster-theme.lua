@@ -155,7 +155,7 @@ local mapping = {
   ["@lsp.type.member"] = {
     fg = token_colors["Global definitions"]["background"],
   },
-  ["@lsp.type.class.typescriptreact"] = {
+  ["@lsp.type.class"] = {
     fg = token_colors["Global definitions"]["background"],
   },
 }
